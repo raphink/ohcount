@@ -122,7 +122,8 @@ build_ruby_bindings()
 	sh -c "swig -ruby -o ruby/ohcount_wrap.c ruby/ohcount.i" || exit 1
 	mkdir -p ruby/$arch
   sh -c "$cc $RB_SHARED ruby/ohcount_wrap.c $files -o ruby/$arch/$RB_SHARED_NAME \
-    -I`ruby -rmkmf -e 'print RbConfig::CONFIG["rubyhdrdir"]'`/ruby \
+    -I`ruby -rmkmf -e 'print RbConfig::CONFIG["rubyhdrdir"]'` \
+    -I`ruby -rmkmf -e 'print RbConfig::CONFIG["rubyhdrdir"]'`/`ruby -rmkmf -e 'print RbConfig::CONFIG["arch"]'` \
     -lpcre -lmagic" || exit 1
   sh -c "cd test/unit/ruby && ruby ruby_test.rb" || exit 1
 }
