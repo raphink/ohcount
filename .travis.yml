@@ -5,4 +5,4 @@ rvm:
   - 1.9.2
 install:
   - sudo apt-get update
-  - sudo apt-get install gperf libpcre3-dev libmagic-dev swig
+  - sudo apt-get install  gperf libpcre3-dev libmagic-dev swig
